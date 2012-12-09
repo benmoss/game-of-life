@@ -46,6 +46,10 @@ class CellUpdater
       new_world[row_number][cell_number] = 1
     end
 
+    if neighbors.count { |c| c.nonzero? } < 2
+      new_world[row_number][cell_number] = 0
+    end
+
     nil
   end
 end
