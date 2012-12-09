@@ -14,4 +14,18 @@ describe "the game" do
       [0, 0, 0]
     ]
   end
+
+  it "Any live cell with more than three live neighbours dies, as if by overcrowding." do
+    world = [
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1]
+    ]
+    WorldAdvancer.next_tick(world)
+    world.should == [
+      [1, 0, 1],
+      [0, 0, 0],
+      [1, 0, 1]
+    ]
+  end
 end
