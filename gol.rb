@@ -1,4 +1,4 @@
-require 'pry'
+require 'rainbow'
 
 class WorldAdvancer
   def self.next_tick(world)
@@ -52,4 +52,18 @@ class CellUpdater
 
     nil
   end
+end
+
+world = 70.times.map do
+  70.times.map { rand(35) > 1 ? 0 : 1 }
+end
+
+while true
+  system("clear")
+  world.each do |row|
+    colorized =  row.map { |c| c.nonzero? ? "X".to_s.color(:green).bright : "."}
+    puts colorized.join(" ")
+  end
+
+  WorldAdvancer.next_tick(world)
 end
