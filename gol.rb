@@ -30,7 +30,7 @@ class CellUpdater
       location[0] >= 0 &&
         location[1] >= 0 &&
         location[0] <= old_world.size - 1 &&
-        location[1] <= old_world.size - 1
+        location[1] <= old_world.first.size - 1
     end
 
     neighbors = []
@@ -53,6 +53,8 @@ class CellUpdater
     nil
   end
 end
+
+__END__
 
 world = 70.times.map do
   70.times.map { rand(35) > 1 ? 0 : 1 }
