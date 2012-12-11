@@ -57,4 +57,18 @@ describe "the game" do
       [0, 0, 0]
     ]
   end
+
+  it "works with a rectangular grid" do
+    world = [
+      [1, 1, 1, 0],
+      [0, 1, 0, 1],
+      [0, 0, 0, 1]
+    ]
+    WorldAdvancer.next_tick(world)
+    world.should == [
+      [1, 1, 1, 0],
+      [1, 1, 0, 1],
+      [0, 0, 1, 0]
+    ]
+  end
 end
